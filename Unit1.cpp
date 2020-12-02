@@ -75,7 +75,7 @@ int TForm1::countAnswer(int arr[], int firstNeg, int secondNeg)
 
     for(int i = firstNeg + 1; i < secondNeg; i++)
     {
-        answer = answer + arr[i];
+        answer += arr[i];
     }
 
     return answer;
