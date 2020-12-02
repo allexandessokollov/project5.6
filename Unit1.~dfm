@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 192
-  Top = 125
+  Left = 189
+  Top = 235
   Width = 747
   Height = 297
   Caption = 'Form1'
@@ -26,12 +26,24 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
   end
-  object answer: TLabel
+  object label333: TLabel
     Left = 208
     Top = 168
     Width = 67
     Height = 24
     Caption = 'answer:'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Trebuchet MS'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 288
+    Top = 168
+    Width = 209
+    Height = 24
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -52,6 +64,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    OnClick = CountClick
   end
   object StringGrid1: TStringGrid
     Left = 16
@@ -93,6 +106,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = fillArrayClick
   end
   object changeSize: TButton
     Left = 392
@@ -107,18 +121,6 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 4
-  end
-  object answerEdit: TEdit
-    Left = 288
-    Top = 168
-    Width = 81
-    Height = 32
-    Font.Charset = RUSSIAN_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -19
-    Font.Name = 'Trebuchet MS'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 5
+    OnClick = changeSizeClick
   end
 end

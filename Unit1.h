@@ -13,16 +13,21 @@ class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
         TLabel *sixzeOfArrLabel;
-        TLabel *answer;
+        TLabel *label333;
         TButton *Count;
         TStringGrid *StringGrid1;
         TEdit *EditSizeOfArr;
         TButton *fillArray;
         TButton *changeSize;
-        TEdit *answerEdit;
+        TLabel *Label1;
+        void __fastcall fillArrayClick(TObject *Sender);
+        void __fastcall changeSizeClick(TObject *Sender);
+        void __fastcall CountClick(TObject *Sender);
 private:
-        int firstNeg(int arr[], in arrSize);
-        int secondNeg(int arr[], int arrSize);	// User declarations
+        int firstNeg(int arr[], int arrSize);
+        int secondNeg(int arr[], int arrSize);
+        int countAnswer(int arr[], int firstNeg, int secondNeg);
+        bool  isStringGridFilled(int colCount);	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
 };
