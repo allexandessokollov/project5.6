@@ -15,7 +15,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-
+const int maxArraySize = 14;
 
 bool  TForm1::isStringGridFilled(int colCount)
 {
@@ -89,7 +89,7 @@ void __fastcall TForm1::fillArrayClick(TObject *Sender)
     {
         StringGrid1->ColCount = 0;
     }
-    else if(StrToInt(str) > 14)
+    else if(StrToInt(str) > maxArraySize)
     {
         ShowMessage("maximum quantity is 14");
         EditSizeOfArr->Text = "14";
@@ -114,11 +114,11 @@ void __fastcall TForm1::changeSizeClick(TObject *Sender)
     {
         StringGrid1->ColCount = 0;
     }
-    else if (StrToInt(str) > 14)
+    else if (StrToInt(str) > maxArraySize)
     {
         ShowMessage("maximum quantity is 14");
         EditSizeOfArr->Text = "14";
-        StringGrid1->ColCount = StrToInt(14);
+        StringGrid1->ColCount = StrToInt(maxArraySize);
     }
     else
     {
