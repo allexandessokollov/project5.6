@@ -42,7 +42,7 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 288
     Top = 168
-    Width = 209
+    Width = 73
     Height = 24
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
