@@ -24,10 +24,10 @@ __published:	// IDE-managed Components
         void __fastcall changeSizeClick(TObject *Sender);
         void __fastcall CountClick(TObject *Sender);
 private:
-        int firstNeg(int arr[], int arrSize);
-        int secondNeg(int arr[], int arrSize);
-        int countAnswer(int arr[], int firstNeg, int secondNeg);
-        bool  isStringGridFilled(int colCount);	// User declarations
+
+        int findSequenceSumm(int arr[], int firstNeg, int secondNeg);
+        bool  isStringGridFilled(int colCount);
+        int findNegNumberIndex(int arr[], int startIndex, int arrSize);	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
 };
