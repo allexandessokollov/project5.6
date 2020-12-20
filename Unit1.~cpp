@@ -16,6 +16,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 const int MAX_ARR_SIZE = 14;
+const int MAX_RANDOM_VALUE = 15;
+const int MIN_RANDOM_VALUE = -5;
+const int FAILED_SEARCH = -1;
 
 bool  TForm1::isStringGridFilled(int colCount)
 {
@@ -64,7 +67,7 @@ void __fastcall TForm1::fillArrayClick(TObject *Sender)
 
     for(int i = 0; i < StringGrid1->ColCount; i++)
     {
-        StringGrid1->Cells[i][0] = StrToInt(random(20) - 10);
+        StringGrid1->Cells[i][0] = StrToInt(random(MAX_RANDOM_VALUE - MIN_RANDOM_VALUE) + MIN_RANDOM_VALUE);
     }        
 }
 //---------------------------------------------------------------------------
@@ -81,7 +84,7 @@ void __fastcall TForm1::changeSizeClick(TObject *Sender)
     {
         ShowMessage("maximum quantity is 14");
         EditSizeOfArr->Text = "14";
-        StringGrid1->ColCount = StrToInt(maxArraySize);
+        StringGrid1->ColCount = StrToInt(MAX_ARR_SIZE);
     }
     else
     {
@@ -122,19 +125,33 @@ void __fastcall TForm1::CountClick(TObject *Sender)
     {
         ShowMessage("you should Fill array");
     }
+   
+    fNeg = findNegNumberIndex(arr, 0, arrSize);
 
-    fNeg = findNegNumberIndex(arr, 0, arrSize);;
-    sNeg = findNegNumberIndex(arr, fNeg + 1, arrSize);
-
-    if((sNeg - fNeg) <= 1)
+    if(fNeg == FAILED_SEARCH)
     {
-        
-        ShowMessage("there is no elements between");
+        ShowMessage("\n\nthere is no negative numbers\nrestart application\n\n");
     }
     else
     {
-        AnsiString str =  IntToStr(findSequenceSumm(arr, fNeg, sNeg));
-        Label1->Caption = str;
+        sNeg = findNegNumberIndex(arr, fNeg + 1, arrSize);
+
+        if(sNeg == FAILED_SEARCH)
+        {
+        ShowMessage("there is no second negative number\nrestart application");
+        }
+        else
+        {
+            if((sNeg - fNeg) <= 1)
+            {
+                ShowMessage("there is no elements between\nrestart application");
+            }
+            else
+            {
+                AnsiString str =  IntToStr(findSequenceSumm(arr, fNeg, sNeg));
+                Label1->Caption = str;
+            }
+        }
     }
 
 }
@@ -143,13 +160,20 @@ void __fastcall TForm1::CountClick(TObject *Sender)
 
 int TForm1::findNegNumberIndex(int arr[], int startIndex, int arrSize)
 {
-    int ifWasntFind = -1;
-
     for(int i = startIndex; i < arrSize; i++)
     {
         if(arr[i] < 0)
+        {
             return i;
+        }
     }
 
-    return  ifWasntFind;
+    return  FAILED_SEARCH;
 }
+
+
+
+
+
+
+
